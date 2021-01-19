@@ -38,6 +38,18 @@ wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 sudo apt update && sudo apt install signal-desktop
 
+# Proton Bridge
+wget https://protonmail.com/download/protonmail-bridge_1.5.4-1_amd64.deb
+sudo apt install ./protonmail-bridge_1.5.4-1_amd64.deb
+rm protonmail-bridge_1.5.4-1_amd64.deb
+
+# Brave Browser
+sudo apt install apt-transport-https curl gnupg
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
+
 # Discord
 wget https://dl.discordapp.net/apps/linux/0.0.13/discord-0.0.13.deb
 sudo apt install ./discord-0.0.13.deb
