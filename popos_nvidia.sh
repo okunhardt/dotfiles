@@ -1,4 +1,6 @@
 #!/bin/bash
+# Owen Kunhardt
+# This script is intended for computers with an Nvidia GPU running Pop!_OS 20.10
 
 sudo apt update && sudo apt upgrade
 
@@ -11,7 +13,7 @@ sudo apt install python3-pip idle neovim python3-neovim julia gdb texlive-latex-
 pip3 install image numpy scipy pandas matplotlib seaborn folium scikit-learn opencv-python torch torchvision
 
 # Software and Tools
-sudo apt install thunderbird inkscape vlc nextcloud-desktop slack-desktop neofetch ranger zsh alacritty exfat-fuse exfat-utils
+sudo apt install thunderbird inkscape vlc nextcloud-desktop slack-desktop xournal pdftk htop neofetch ranger zsh alacritty exfat-fuse exfat-utils
 
 # MS Fonts
 sudo add-apt-repository multiverse
