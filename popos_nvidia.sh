@@ -13,7 +13,7 @@ sudo apt install python3-pip idle neovim python3-neovim julia gdb texlive-latex-
 pip3 install image numpy scipy pandas matplotlib seaborn folium scikit-learn opencv-python torch torchvision jupyterlab
 
 # Software and Tools
-sudo apt install thunderbird inkscape vlc nextcloud-desktop slack-desktop xournal pdftk htop neofetch ranger zsh alacritty exfat-fuse exfat-utils
+sudo apt install thunderbird inkscape vlc nextcloud-desktop slack-desktop xournal gnome-boxes pdftk htop neofetch ranger zsh alacritty exfat-fuse exfat-utils
 
 # Docker
 sudo apt update
