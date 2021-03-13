@@ -1,6 +1,6 @@
 #!/bin/bash
-# Owen Kunhardt
-# This script is intended for computers with an Nvidia GPU running Pop!_OS 20.10
+# Author: Owen Kunhardt
+# This script is intended for computers with an Nvidia GPU running Pop!_OS 20.04 or 20.10
 
 sudo apt update && sudo apt upgrade
 
@@ -10,10 +10,23 @@ sudo apt install system76-cudnn-10.2
 
 # Programming and Programming Tools
 sudo apt install python3-pip idle neovim python3-neovim julia gdb texlive-latex-extra
-pip3 install image numpy scipy pandas matplotlib seaborn folium scikit-learn opencv-python torch torchvision
+pip3 install image numpy scipy pandas matplotlib seaborn folium scikit-learn opencv-python torch torchvision jupyterlab
 
 # Software and Tools
 sudo apt install thunderbird inkscape vlc nextcloud-desktop slack-desktop xournal pdftk htop neofetch ranger zsh alacritty exfat-fuse exfat-utils
+
+# Docker
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
+
+# Tensorman
+sudo apt install nvidia-container-runtime
+sudo apt install tensorman
 
 # MS Fonts
 sudo add-apt-repository multiverse
@@ -41,9 +54,8 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 sudo apt update && sudo apt install signal-desktop
 
 # Proton Bridge
-wget https://protonmail.com/download/protonmail-bridge_1.5.4-1_amd64.deb
-sudo apt install ./protonmail-bridge_1.5.4-1_amd64.deb
-rm protonmail-bridge_1.5.4-1_amd64.deb
+wget https://protonmail.com/download/protonmail-bridge_1.6.6-1_amd64.deb
+sudo apt install ./protonmail-bridge_1.6.6-1_amd64.deb
 
 # Brave Browser
 sudo apt install apt-transport-https curl gnupg
@@ -55,12 +67,10 @@ sudo apt install brave-browser
 # Discord
 wget https://dl.discordapp.net/apps/linux/0.0.13/discord-0.0.13.deb
 sudo apt install ./discord-0.0.13.deb
-rm discord-0.0.13.deb
 
 # Zoom
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install ./zoom_amd64.deb
-rm zoom_amd64.deb
 
 # Spotify
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
@@ -70,22 +80,21 @@ sudo apt-get update && sudo apt-get install spotify-client
 # Steam
 wget https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb
 sudo apt install ./steam.deb
-rm steam.deb
 
 # Wine
-# sudo dpkg --add-architecture i386
-# wget -nc https://dl.winehq.org/wine-builds/winehq.key
-# sudo apt-key add winehq.key
-# sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' 
-# sudo apt install --install-recommends winehq-stable
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main' 
+sudo apt install --install-recommends winehq-stable
 
 # Lutris
-# sudo add-apt-repository ppa:lutris-team/lutris
-# sudo apt update
-# sudo apt install lutris
+sudo add-apt-repository ppa:lutris-team/lutris
+sudo apt update
+sudo apt install lutris
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
+reboot
 
